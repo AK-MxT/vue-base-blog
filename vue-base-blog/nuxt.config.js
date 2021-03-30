@@ -6,15 +6,23 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - vue-base-blog',
-    title: 'vue-base-blog',
+    titleTemplate: process.env.FIRST_TITLE + ' | ' + process.env.SECOND_TITLE,
+    title: process.env.FIRST_TITLE,
     htmlAttrs: {
       lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
+      { hid: 'og:site_name', property: 'og:site_name', content: process.env.SECOND_TITLE },
+      { hid: 'og:type', property: 'og:type', content: 'blog' },
+      { hid: 'og:url', property: 'og:url', content: 'https://サイトのURL' },
+      { hid: 'og:title', property: 'og:title', content: process.env.SECOND_TITLE },
+      { hid: 'og:description', property: 'og:description', content: 'フリーエンジニアが生き抜くための技術まわりとお金まわり' },
+      { hid: 'og:image', property: 'og:image', content: 'https://サイトのUR/og.jpg' },
+      { hid: 'twitter:card', neme: 'twitter:card', content: 'summary_large_image' },
+      { hid: 'twitter:site', name: 'twitter:site', content: '@A_MxT_' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -42,7 +50,7 @@ export default {
     '@nuxtjs/google-analytics'
   ],
   googleAnalytics: {
-    id: ''
+    id: process.env.GOOGLE_ANALYTICS_ID
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -59,6 +67,13 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
     markdown: {
+      remarkPlugins: [
+        'remark-emoji',
+        'remark-toc',
+        'remark-footnotes',
+        'remark-code-titles',
+        'remark-footnotes'
+      ],
       prism: {
         theme: 'prism-themes/themes/prism-material-oceanic.css'
       }
