@@ -64,3 +64,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.remark-code-title {
+  background: #d9d7e0;
+  border-radius: 0px 0px 4px 4px;
+  color: #3a3a3a;
+  font-size: 0.75rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  left: 1rem;
+  text-align: right;
+  z-index: 1;
+}
+</style>
