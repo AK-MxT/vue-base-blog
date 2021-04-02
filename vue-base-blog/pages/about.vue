@@ -9,7 +9,7 @@
                 color="info"
                 size="128"
               >
-                <span class="white--text headline">img</span>
+                <v-img :src="require('~/assets/profile.jpeg')" />
               </v-avatar>
             </v-col>
           </v-row>
