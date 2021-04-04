@@ -14,9 +14,16 @@
               :articles="articles"
             />
           </v-col>
-          <v-col cols="10">
+          <v-col
+            cols="12"
+            xl="8"
+            lg="8"
+            md="8"
+            sm="12"
+          >
             <nuxt />
           </v-col>
+          <v-col class="hidden-md-and-down" />
         </v-row>
       </v-container>
       <v-col class="hidden-md-and-down">
@@ -40,7 +47,7 @@ export default {
     }
   },
   async created () {
-    const query = await this.$content('articles').sortBy('createdAt', 'asc').limit(3)
+    const query = await this.$content('articles').sortBy('date', 'desc').limit(3)
     const articles = await query.fetch()
     this.articles = articles
   }

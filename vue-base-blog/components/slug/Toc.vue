@@ -5,9 +5,13 @@
   >
     <v-card
       flat
-      class="mt-7"
+      class="mt-7 pa-2"
     >
-      <v-container fluid>
+      <v-card-title class="py-1">
+        目次
+      </v-card-title>
+      <v-divider />
+      <v-container>
         <v-row class="my-4">
           <ul>
             <li
@@ -58,13 +62,6 @@ export default {
   },
   created () {
     this.items = this.toc
-  },
-  methods: {
-    encodeId (val) {
-      const test = encodeURI(val)
-      console.log(test)
-      return test
-    }
   }
 }
 </script>

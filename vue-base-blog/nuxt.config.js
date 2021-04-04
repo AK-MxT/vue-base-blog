@@ -96,7 +96,7 @@ export default {
           success: colors.green.accent3
         },
         light: {
-          primary: colors.green.base,
+          primary: colors.green.darken3,
           secondary: colors.teal.base,
           accent: colors.cyan.base,
           error: colors.red.base,

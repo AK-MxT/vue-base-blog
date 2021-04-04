@@ -6,6 +6,7 @@
       lg="6"
       md="6"
       sm="12"
+      class="py-3"
     >
       <v-card flat>
         <v-card-title class="main-title mb-2">
@@ -18,6 +19,11 @@
     </v-col>
     <v-col
       cols="12"
+      xl="8"
+      lg="8"
+      md="8"
+      sm="12"
+      class="py-3"
     >
       <v-card flat>
         <v-container>
@@ -40,7 +46,7 @@
                   :key="n.slug"
                   cols="12"
                   align-self="center"
-                  class="mx-auto"
+                  class=""
                 >
                   <h2 class="post-head">
                     <nuxt-link
@@ -51,12 +57,17 @@
                       {{ n.title }}
                     </nuxt-link>
                   </h2>
-                  <span style="color: #616161">{{ viewDate(n.updatedAt) }}</span>
+                  <p
+                    class="mb-0"
+                    style="color: #616161"
+                  >
+                    {{ viewDate(n.date) }}
+                  </p>
                   <v-chip
                     v-for="tag in n.tags"
                     :key="tag"
-                    color="info"
-                    class="ma-1 mt-0"
+                    color="primary"
+                    class="mr-2"
                     link
                     x-small
                     @click="searchQuery = tag"
@@ -73,7 +84,7 @@
                     <v-pagination
                       v-model="page"
                       :length="length"
-                      color="info"
+                      color="secondary"
                     />
                   </div>
                 </v-col>
@@ -87,10 +98,9 @@
 </template>
 
 <script>
-
 export default {
   async asyncData ({ $content }) {
-    const query = await $content('articles').sortBy('createdAt', 'asc').limit(5)
+    const query = await $content('articles').sortBy('date', 'desc').limit(5)
     const articles = await query.fetch()
     return { articles }
   },
@@ -108,7 +118,7 @@ export default {
     async searchQuery (searchQuery) {
       if (!searchQuery) {
         this.articles = await this.$content('articles')
-          .sortBy('createdAt', 'asc').limit(this.limit)
+          .sortBy('date', 'desc').limit(this.limit)
           .fetch()
         this.page = 1
         return
@@ -119,7 +129,7 @@ export default {
     },
     async page (val) {
       const skip = --val * this.limit
-      this.articles = await this.$content('articles').sortBy('createdAt', 'asc').limit(this.limit).skip(skip).fetch()
+      this.articles = await this.$content('articles').sortBy('date', 'desc').limit(this.limit).skip(skip).fetch()
     }
   },
 
@@ -131,7 +141,7 @@ export default {
   methods: {
     viewDate (srcDate) {
       const dt = new Date(srcDate)
-      return dt.toLocaleString()
+      return dt.toLocaleDateString()
     }
   }
 }
