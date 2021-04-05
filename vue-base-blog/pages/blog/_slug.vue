@@ -51,6 +51,7 @@
       lg="3"
       md="3"
       sm="12"
+      class="px-0 pb-0"
     >
       <slug-toc :toc="article.toc" />
     </v-col>

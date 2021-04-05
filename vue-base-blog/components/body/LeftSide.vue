@@ -5,7 +5,7 @@
   >
     <v-card
       flat
-      class="mt-9 pa-2"
+      class="pa-2"
     >
       <v-card-title class="py-1">
         Pick Up
@@ -30,15 +30,15 @@
       <v-divider />
       <div class="mt-3">
         <v-chip
-          v-for="tag in tags"
-          :key="tag"
+          v-for="item in tagList"
+          :key="item"
           color="primary"
           class="mx-2 my-1"
           link
           small
-          @click="searchQuery = tag"
+          @click="searchQuery = item"
         >
-          {{ tag }}
+          {{ item }}
         </v-chip>
       </div>
     </v-card>
@@ -51,22 +51,20 @@ export default {
     articles: {
       type: Array,
       default: () => []
-    }
-  },
-  data () {
-    return {
-      tagList: this.tags
+    },
+    tags: {
+      type: Array,
+      default: () => []
     }
   },
   computed: {
-    tags () {
+    tagList () {
       const arr = []
-      this.articles.forEach((p) => {
+      this.tags.forEach((p) => {
         p.tags.forEach((v) => {
           arr.push(v)
         })
       })
-
       return Array.from(new Set(arr))
     }
   }

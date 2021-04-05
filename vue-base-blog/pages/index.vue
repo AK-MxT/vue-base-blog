@@ -100,7 +100,7 @@
 <script>
 export default {
   async asyncData ({ $content }) {
-    const query = await $content('articles').sortBy('date', 'desc').limit(5)
+    const query = await $content('articles').where({ isShow: true }).sortBy('date', 'desc').limit(5)
     const articles = await query.fetch()
     return { articles }
   },
@@ -117,24 +117,24 @@ export default {
   watch: {
     async searchQuery (searchQuery) {
       if (!searchQuery) {
-        this.articles = await this.$content('articles')
+        this.articles = await this.$content('articles').where({ isShow: true })
           .sortBy('date', 'desc').limit(this.limit)
           .fetch()
         this.page = 1
         return
       }
       this.articles = await this.$content('articles')
-        .where({ tags: { $containsAny: searchQuery } })
+        .where({ isShow: true, tags: { $containsAny: searchQuery } })
         .fetch()
     },
     async page (val) {
       const skip = --val * this.limit
-      this.articles = await this.$content('articles').sortBy('date', 'desc').limit(this.limit).skip(skip).fetch()
+      this.articles = await this.$content('articles').where({ isShow: true }).sortBy('date', 'desc').limit(this.limit).skip(skip).fetch()
     }
   },
 
   async created () {
-    const all = await this.$content('articles').fetch()
+    const all = await this.$content('articles').where({ isShow: true }).fetch()
     this.length = Math.ceil(all.length / this.limit)
   },
 
@@ -160,7 +160,7 @@ export default {
 }
 
 .post-head {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 4px;
   &__title {
     color: inherit;

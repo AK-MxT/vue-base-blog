@@ -5,7 +5,7 @@
   >
     <v-card
       flat
-      class="mt-7 pa-2"
+      class="pa-2"
     >
       <v-card-title class="py-1">
         目次
@@ -74,7 +74,7 @@ export default {
   top: 80px !important;
 }
 .v-application--is-ltr .v-banner__wrapper {
-    padding: 0px 0px 0px 0px;
+    padding: 0px 4px 0px 12px !important;
 }
 
 .theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped) .v-banner__wrapper {

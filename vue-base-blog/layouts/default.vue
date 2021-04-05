@@ -8,10 +8,11 @@
         <v-row justify="center">
           <v-col
             cols="2"
-            class="hidden-md-and-down pr-0"
+            class="hidden-md-and-down pr-0 pb-0"
           >
             <body-left-side
               :articles="articles"
+              :tags="tags"
             />
           </v-col>
           <v-col
@@ -38,7 +39,8 @@
 export default {
   data () {
     return {
-      articles: []
+      articles: [],
+      tags: []
     }
   },
   computed: {
@@ -47,9 +49,13 @@ export default {
     }
   },
   async created () {
-    const query = await this.$content('articles').sortBy('date', 'desc').limit(3)
+    // ピックアップする記事のリスト
+    const query = await this.$content('articles').where({ isShow: true }).sortBy('date', 'desc').limit(3)
     const articles = await query.fetch()
     this.articles = articles
+    // すべてのタグのリスト
+    const tags = await this.$content('articles').where({ isShow: true }).only(['tags']).fetch()
+    this.tags = tags
   }
 }
 </script>
@@ -71,6 +77,6 @@ export default {
 .v-btn--fab {
   bottom: 0;
   position: absolute;
-  margin: 0 16px 52px 0;
+  margin: 0 16px 16px 0;
 }
 </style>

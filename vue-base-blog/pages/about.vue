@@ -2,7 +2,7 @@
   <v-row>
     <v-col cols="auto" class="mx-auto">
       <v-card
-        class="pa-4"
+        class="pa-3"
         flat
       >
         <v-row>

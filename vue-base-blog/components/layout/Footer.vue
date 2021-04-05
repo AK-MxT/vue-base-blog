@@ -40,6 +40,17 @@
         </v-icon>
       </v-btn>
       <v-col
+        class="pb-0 text-center"
+        cols="12"
+      >
+        <nuxt-link
+          to="/privacy-policy"
+          style="text-decoration: none; color: white;"
+        >
+          プライバシーポリシー
+        </nuxt-link>
+      </v-col>
+      <v-col
         class="text-center"
         cols="12"
       >
