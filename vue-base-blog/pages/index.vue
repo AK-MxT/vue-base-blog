@@ -72,7 +72,7 @@
                     x-small
                     @click="searchQuery = tag"
                   >
-                    {{ tag }}
+                    # {{ tag }}
                   </v-chip>
                 </v-col>
                 <v-col

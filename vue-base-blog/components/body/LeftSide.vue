@@ -38,7 +38,7 @@
           small
           @click="searchQuery = item"
         >
-          {{ item }}
+          # {{ item }}
         </v-chip>
       </div>
     </v-card>

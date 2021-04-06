@@ -37,7 +37,7 @@
               class="ma-1"
               small
             >
-              {{ tag }}
+              # {{ tag }}
             </v-chip>
             <nuxt-content class="mt-4" :document="article" />
           </article>
@@ -76,14 +76,15 @@ export default {
 <style lang="scss">
 .remark-code-title {
   background: #d9d7e0;
-  border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 0px;
   color: #3a3a3a;
   font-size: 0.75rem;
   letter-spacing: 0.075em;
   line-height: 1;
+  margin-top: 0.5rem;
   padding: 0.25rem 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 0rem;
   text-align: right;
   z-index: 1;
 }

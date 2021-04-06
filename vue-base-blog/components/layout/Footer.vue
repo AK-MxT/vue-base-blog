@@ -54,7 +54,7 @@
         class="text-center"
         cols="12"
       >
-        <span style="color: white;"> &copy; {{ new Date().getFullYear() }}</span>
+        <span style="color: white;"> &copy; {{ new Date().getFullYear() }} ALL RIGHTS RESERVED.</span>
       </v-col>
     </v-container>
   </v-footer>
