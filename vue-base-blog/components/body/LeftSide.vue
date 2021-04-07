@@ -70,3 +70,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.v-banner {
+  top: 80px !important;
+}
+.v-application--is-ltr .v-banner__wrapper {
+    padding: 0px 0px 0px 0px;
+}
+.theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped) .v-banner__wrapper {
+  border-bottom: none;
+}
+</style>

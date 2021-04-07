@@ -59,24 +59,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.sidebar-header {
-  font-weight: bold;
-  font-size: 20px;
-}
-.v-banner {
-  top: 80px !important;
-}
-.v-application--is-ltr .v-banner__wrapper {
-    padding: 0px 0px 0px 0px;
-}
-.theme--light.v-banner.v-sheet:not(.v-sheet--outlined):not(.v-sheet--shaped) .v-banner__wrapper {
-  border-bottom: none;
-}
-.v-btn--fab {
-  bottom: 0;
-  position: absolute;
-  margin: 0 16px 16px 0;
-}
-</style>

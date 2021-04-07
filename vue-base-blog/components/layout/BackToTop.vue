@@ -14,3 +14,11 @@
     </v-btn>
   </v-fab-transition>
 </template>
+
+<style lang="scss" scoped>
+.v-btn--fab {
+  bottom: 0;
+  position: absolute;
+  margin: 0 16px 16px 0;
+}
+</style>
