@@ -17,10 +17,10 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { hid: 'og:site_name', property: 'og:site_name', content: process.env.SECOND_TITLE },
       { hid: 'og:type', property: 'og:type', content: 'blog' },
-      { hid: 'og:url', property: 'og:url', content: 'https://サイトのURL' },
+      { hid: 'og:url', property: 'og:url', content: '' },
       { hid: 'og:title', property: 'og:title', content: process.env.SECOND_TITLE },
       { hid: 'og:description', property: 'og:description', content: 'フリーエンジニアが生き抜くための技術まわりとお金まわり' },
-      { hid: 'og:image', property: 'og:image', content: 'https://サイトのUR/og.jpg' },
+      { hid: 'og:image', property: 'og:image', content: '' },
       { hid: 'twitter:card', neme: 'twitter:card', content: 'summary_large_image' },
       { hid: 'twitter:site', name: 'twitter:site', content: '@A_MxT_' }
     ],
