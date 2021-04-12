@@ -49,9 +49,14 @@ export default {
     '@nuxtjs/vuetify',
     '@nuxtjs/google-analytics'
   ],
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID
+
+  generate: {
+    fallback: true
   },
+
+  // googleAnalytics: {
+  //   id: process.env.GOOGLE_ANALYTICS_ID
+  // },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
